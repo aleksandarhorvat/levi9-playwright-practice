@@ -19,7 +19,7 @@ test.describe("Login User with correct email and password", () => {
 
         await loginPage.login(userData.email, userData.password);
 
-        await page.getByText(" Logged in as " + userData.email).isVisible();
+        await page.getByText(" Logged in as " + userData.username).isVisible();
 
         await loginPage.deleteAccount();
     })
