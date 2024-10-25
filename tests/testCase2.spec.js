@@ -1,6 +1,5 @@
 const { test, expect } = require('@playwright/test');
 import { LoggedInUser } from '../model/LoggedInUser';
-import { UserData } from '../model/SignInUser'
 import {LoginPage} from '../pages/loginPage'
 
 test.describe("Login User with correct email and password", () => {
@@ -15,7 +14,7 @@ test.describe("Login User with correct email and password", () => {
 
         await expect(loginPage.loginToAccount).toHaveText("Login to your account");
 
-        var userData = new LoggedInUser("username@levi99", "Password1*", "user");
+        var userData = new LoggedInUser("username@levi9", "Password1*", "user");
 
         await loginPage.login(userData.email, userData.password);
 
