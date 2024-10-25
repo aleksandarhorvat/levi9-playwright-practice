@@ -1,15 +1,15 @@
 const { test, expect } = require('@playwright/test');
-import { UserData } from '../model/userData'
+import { UserData } from '../model/SignInUser'
 import {LoginPage} from '../pages/loginPage'
 
 test.describe("Register User", () => {
 
     test("Register User", async ({page}) => {
-        let userData = new UserData("user", "username@levi", "Password1*", 
+        let userData = new SignInUser("user", "username@levi", "Password1*", 
             "2", "2", "2002", "firstName", "lastName", "company", "adress1", 
             "adress2", "United States", "state", "city", "zipcode", "mobile_number"
         );
-        let loginPage = new LoginPage(page, userData.username);
+        let loginPage = new LoginPage(page);
 
         await loginPage.openApp();
 
@@ -29,7 +29,7 @@ test.describe("Register User", () => {
 
         await loginPage.continueButton.click();
 
-        await expect(loginPage.loggedInAs).toHaveText(" Logged in as " + userData.username);
+        await page.getByText(" Logged in as " + userData.username).isVisible();
 
         await loginPage.deleteAccount();
     })

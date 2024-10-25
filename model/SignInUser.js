@@ -1,10 +1,10 @@
-export class UserData {
+import { LoggedInUser } from "./LoggedInUser";
+
+export class SignInUser extends LoggedInUser{
     constructor(username, email, password, day, month, year, 
         firstName, lastName, company, address1, address2, country, 
         state, city, zipcode, mobile_number){
-            this.username = username;
-            this.email = email;
-            this.password = password;
+            super(email, password, username);
             this.day = day;
             this.month = month;
             this.year = year;
