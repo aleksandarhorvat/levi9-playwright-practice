@@ -1,14 +1,14 @@
 import { BasePage } from "./basePage";
 
 export class LoginPage extends BasePage{
-    constructor(page, username){
+    constructor(page){
         super(page)
         this.linkSingupLogin = page.getByRole("link", {name: " Signup / Login"});
         this.newUserSignUp = page.locator("//h2[text()='New User Signup!']");
+        this.loginToAccount = page.locator("//h2[text()='Login to your account']");
         this.inputNameForSignup = page.getByPlaceholder("Name");
         this.inputEmalForSignup = page.locator("[action='/signup'] [type='email']");
         this.buttonSignup = page.getByRole("button", {"name": "Signup"});
-        this.loggedInAs = page.getByText(" Logged in as " + username);
         this.accountInformation = page.getByText("Enter Account Information");
         this.accountCreated = page.getByText("Account Created!");
         this.continueButton = page.locator("[data-qa='continue-button']");
