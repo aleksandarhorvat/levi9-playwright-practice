@@ -12,6 +12,7 @@ export class LoginPage extends BasePage{
         this.accountInformation = page.getByText("Enter Account Information");
         this.accountCreated = page.getByText("Account Created!");
         this.continueButton = page.locator("[data-qa='continue-button']");
+        this.logoutButton = page.locator("[href='/logout']");
 
         this.inputLoginEmail = page.locator("#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > input[type=email]:nth-child(2)")
         this.inputPassword = page.locator("#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > input[type=password]:nth-child(3)")
