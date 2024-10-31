@@ -10,7 +10,7 @@ test.describe("Testing PokeAPI", () => {
         var pokemonAPI = new PokemonAPI();
 
         var response = await pokemonAPI.getPokemon("pikachu");
-
+        
         const schema = require("../../utils/pokemonSchema.json");
 
         await expect(ajv.validate(schema, response)).toBeTruthy();

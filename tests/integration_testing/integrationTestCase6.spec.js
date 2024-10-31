@@ -5,6 +5,8 @@ import { LoggedInUser } from '../../model/LoggedInUser';
 import { env } from 'process';
 const Ajv = require("ajv");
 
+test.describe.configure({ mode: 'serial' });
+
 test.describe("User tests", () => {
     test("Create user", async () => {
         const ajv = new Ajv();
@@ -55,17 +57,6 @@ test.describe("User tests", () => {
         await expect(response.responseCode).toEqual(200);
     })
 
-    test("deleteAccount", async () => {
-
-        var productClient = new ProductClient();
-        
-        let userData = new LoggedInUser("username@levi", "Password1*", "user");
-
-        var response = await productClient.deleteAccount(userData);
-
-        await expect(response.responseCode).toEqual(200);
-    })
-
     test("PUT METHOD To Update User Account", async () => {
         const ajv = new Ajv();
         
@@ -89,5 +80,16 @@ test.describe("User tests", () => {
         await expect(response.user.first_name).toEqual(userData.firstName);
         
         await expect(response.user.last_name).toEqual(userData.lastName);
+    })
+
+    test("deleteAccount", async () => {
+
+        var productClient = new ProductClient();
+        
+        let userData = new LoggedInUser("username@levi", "Password1*", "user");
+
+        var response = await productClient.deleteAccount(userData);
+
+        await expect(response.responseCode).toEqual(200);
     })
 })
