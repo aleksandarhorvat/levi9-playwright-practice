@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-import {LoginPage} from '../pages/loginPage'
-import { LoggedInUser } from '../model/LoggedInUser';
+import {LoginPage} from '../../pages/loginPage'
+import { LoggedInUser } from '../../model/LoggedInUser';
 
 test.describe("Logout User", () => {
     test("Logout User", async ({page}) => {

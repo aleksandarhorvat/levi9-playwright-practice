@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-import { ContactUsPage } from '../pages/contactUsPage';
+import { ContactUsPage } from '../../pages/contactUsPage';
 
 test.describe("Contact Us Form", () => {
     test("Contact Us Form", async ({page}) => {

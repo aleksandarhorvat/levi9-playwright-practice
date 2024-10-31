@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { chromium } = require("playwright");
-import { ProductsPage } from '../pages/productsPage';
-import { LoginPage } from '../pages/loginPage';
+import { ProductsPage } from '../../pages/productsPage';
+import { LoginPage } from '../../pages/loginPage';
 
 test.describe("Search Products and Verify Cart After Login", () => {
     test("Search Products and Verify Cart After Login", async () => {
