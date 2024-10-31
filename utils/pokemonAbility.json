@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+      "effect_changes": {
+        "type": "array",
+        "items": {}
+      },
+      "effect_entries": {
+        "type": "array",
+        "items": {}
+      },
+      "flavor_text_entries": {
+        "type": "array",
+        "items": {}
+      },
+      "generation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ]
+      },
+      "id": {
+        "type": "integer"
+      },
+      "is_main_series": {
+        "type": "boolean"
+      },
+      "name": {
+        "type": "string"
+      },
+      "names": {
+        "type": "array",
+        "items": {}
+      },
+      "pokemon": {
+        "type": "array",
+        "items": {}
+      }
+    },
+    "required": [
+      "effect_changes",
+      "effect_entries",
+      "flavor_text_entries",
+      "generation",
+      "id",
+      "is_main_series",
+      "name",
+      "names",
+      "pokemon"
+    ],
+    "additionalProperties": true
+  }

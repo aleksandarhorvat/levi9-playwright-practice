@@ -101,4 +101,29 @@ export class ProductClient extends Proxy {
         let response = await this.delete(url, formData, {})
         return response
     }
+
+    async updateAccount(userData){
+        let url = this.getBaseUrl() + "/updateAccount";
+
+        let formData = new FormData();
+        formData.append("email", userData.email);
+        formData.append("name", userData.username);
+        formData.append("password", userData.password);
+        formData.append("birth_date", userData.day);
+        formData.append("birth_month", userData.month);
+        formData.append("birth_year", userData.year);
+        formData.append("firstname", userData.firstName);
+        formData.append("lastname", userData.lastName);
+        formData.append("company", userData.company);
+        formData.append("address1", userData.address1);
+        formData.append("address2", userData.address2);
+        formData.append("country", userData.country);
+        formData.append("zipcode", userData.zipcode);
+        formData.append("state", userData.state);
+        formData.append("city", userData.city);
+        formData.append("mobile_number", userData.mobile_number);
+
+        let response = await this.put(url, formData, {})
+        return response
+    }
 }
