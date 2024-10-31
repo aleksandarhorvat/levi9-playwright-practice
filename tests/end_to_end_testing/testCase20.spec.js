@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { chromium } = require("playwright");
 import { ProductsPage } from '../../pages/productsPage';
 import { LoginPage } from '../../pages/loginPage';
+import { env } from 'process';
 
 test.describe("Search Products and Verify Cart After Login", () => {
     test("Search Products and Verify Cart After Login", async () => {
@@ -33,7 +34,7 @@ test.describe("Search Products and Verify Cart After Login", () => {
 
         await loginPage.linkSingupLogin.click();
 
-        await loginPage.login("aca@a", "aca");
+        await loginPage.login(env.email, env.password);
 
         await productsPage.cartButton.click();
 

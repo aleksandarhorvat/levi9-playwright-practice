@@ -1,13 +1,14 @@
 const { test, expect } = require('@playwright/test');
 import { SignInUser } from '../../model/SignInUser'
 import {LoginPage} from '../../pages/loginPage'
+import { env } from 'process';
 
 test.describe("Register User", () => {
 
     test("Register User", async ({page}) => {
-        let userData = new SignInUser("user", "username@levi", "Password1*", 
-            "2", "2", "2002", "firstName", "lastName", "company", "adress1", 
-            "adress2", "United States", "state", "city", "zipcode", "mobile_number"
+        let userData = new SignInUser(env.name, env.email, env.password, 
+            env.birth_day, env.birth_month, env.birth_year, env.firstname, env.lastname, env.company, env.address1, 
+            env.address2, env.country, env.state, env.city, env.zipcode, env.mobile_number
         );
         let loginPage = new LoginPage(page);
 
