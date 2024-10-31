@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 import { ProductClient } from '../../common/productClient';
+const Ajv = require("ajv")
 
 test.describe("Validation of product schema", () => {
     test("Validation of product schema", async () => {
@@ -17,4 +18,23 @@ test.describe("Validation of product schema", () => {
             expect(element.brand).not.toBeNull();
         }
     })
+
+    test("Validation of product schema with AJV", async () => {
+        const Ajv = require('ajv');
+        const ajv = new Ajv();
+
+        const productClient = new ProductClient();
+        const response = await productClient.getAllProducts(); // Ensure this returns the full response
+
+        const schema = require("../../utils/productSchema.json");
+        const validate = ajv.compile(schema);
+
+        const valid = validate(response); // Validate the entire response
+        if (!valid) {
+            console.log(validate.errors); // Log any errors for debugging
+        }
+
+        await expect(valid).toBeTruthy();
+    });
+
 })
