@@ -14,7 +14,7 @@ test.describe("Login User with incorrect email and password", () => {
 
         await expect(loginPage.loginToAccount).toHaveText("Login to your account");
 
-        var userData = new LoggedInUser(env.email, env.password, env.name);
+        var userData = new LoggedInUser("username@levi99", "Password1*s", "user");
 
         await loginPage.login(userData.email, userData.password);
 
