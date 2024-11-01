@@ -13,9 +13,9 @@ test.describe("User tests", () => {
 
         var productClient = new ProductClient();
 
-        let userData = new SignInUser(env.name, env.email, env.password, 
-            env.birth_day, env.birth_month, env.birth_year, env.firstname, env.lastname, env.company, env.address1, 
-            env.address2, env.country, env.state, env.city, env.zipcode, env.mobile_number
+        let userData = new SignInUser("user", "username@levi", "Password1*", 
+            "2", "2", "2002", "firstName", "lastName", "company", "adress1", 
+            "adress2", "United States", "state", "city", "zipcode", "mobile_number"
         );
 
         var response = await productClient.createAccount(userData);
@@ -37,7 +37,7 @@ test.describe("User tests", () => {
 
         var productClient = new ProductClient();
         
-        var userData = new LoggedInUser(env.email, env.password, env.name);
+        let userData = new LoggedInUser("username@levi", "Password1*", "user");
 
         var response = await productClient.verifyLogin(userData);
 
@@ -48,9 +48,9 @@ test.describe("User tests", () => {
 
         var productClient = new ProductClient();
         
-        var userData = new LoggedInUser(env.email, env.password, env.name);
+        let userData = new LoggedInUser("username@levi", "Password1*", "user");
 
-        var response = await productClient.getUserDetailByEmail(env.email);
+        var response = await productClient.getUserDetailByEmail("username@levi");
 
         console.log(response);
 
@@ -62,9 +62,9 @@ test.describe("User tests", () => {
         
         var productClient = new ProductClient();
 
-        let userData = new SignInUser(env.name, env.email, env.password, 
-            env.birth_day, env.birth_month, env.birth_year, env.firstname, env.lastname, env.company, env.address1, 
-            env.address2, env.country, env.state, env.city, env.zipcode, env.mobile_number
+        let userData = new SignInUser("user", "username@levi", "Password1*", 
+            "2", "2", "2001", "firstName", "lastName", "company", "adress1", 
+            "adress2", "United States", "state", "city", "zipcode", "mobile_number"
         );
         
         var response = await productClient.updateAccount(userData);
@@ -86,7 +86,7 @@ test.describe("User tests", () => {
 
         var productClient = new ProductClient();
         
-        var userData = new LoggedInUser(env.email, env.password, env.name);
+        let userData = new LoggedInUser("username@levi", "Password1*", "user");
 
         var response = await productClient.deleteAccount(userData);
 

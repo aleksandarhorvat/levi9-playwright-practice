@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test');
 import {LoginPage} from '../../pages/loginPage'
 import { LoggedInUser } from '../../model/LoggedInUser';
-import { env } from 'process';
 
 test.describe("Logout User", () => {
     test("Logout User", async ({page}) => {
@@ -15,7 +14,7 @@ test.describe("Logout User", () => {
 
         await expect(loginPage.loginToAccount).toHaveText("Login to your account");
 
-        var userData = new LoggedInUser(env.email, env.password, env.name);
+        var userData = new LoggedInUser("aca@a", "aca", "aca");
 
         await loginPage.login(userData.email, userData.password);
 
